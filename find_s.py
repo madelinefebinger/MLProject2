@@ -27,7 +27,7 @@ if __name__ == '__main__':
 	# 1. Initialize h to the most specific hypothesis in H
 
 	h = ['0','0','0','0','0','0']
-
+	print("Start: ", h)
 	# Create training examples
 	num_attrs = 7
 	training_examples = []
@@ -52,9 +52,10 @@ if __name__ == '__main__':
 		for i in range(num_attrs-1):
 			if (not is_consistent(h[i],example[i])):
 				h[i] = next_most_general_constraint(h[i],example[i]) # Replace by the next most general constraint
+				print("Make more general: ", h)
 
 
 	# 3. Output hypothesis h
-	print(h)
+	print("Final: ", h)
 
 
