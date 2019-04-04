@@ -20,6 +20,17 @@ def next_most_general_constraint(constraint,example_attr):
 	else:
 		return '?'
 	
+def find_s_algorithm(training_examples,num_attrs):
+	h = ['0','0','0','0','0','0']
+
+	for example in training_examples:
+		if (example[-1] == 'No'):
+			continue
+
+		for i in range(num_attrs-1):
+			if (not is_consistent(h[i],example[i])):
+				h[i] = next_most_general_constraint(h[i],example[i]) # Replace by the next most general constraint
+	return h	
 
 if __name__ == '__main__':
 	
